@@ -11,107 +11,183 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: KKList(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+// 列表
+class KKList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+    final title = '基础列表示例';
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('alarm'),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.airplay),
+              title: Text('airplay'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.alarm),
+              title: Text('phone'),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+//  按钮 图标
+class KKImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('图标组件示例'),
+        ),
+        body: Column(
+          children: [
+            Icon(
+              Icons.phone,
+              color: Colors.green[300],
+              size: 80,
+            ),
+            IconButton(
+                icon: Icon(
+                  Icons.volume_up,
+                  size: 48,
+                ),
+                tooltip: '按下操作',
+                onPressed: () {
+                  print('按下操作 666');
+                }),
+            RaisedButton(
+              onPressed: () {
+                print('打印 RaisedButton Button 按钮 ');
+              },
+              child: Text('RaisedButton Button 按钮'),
+            )
+          ],
+        ));
+  }
+}
+
+// 文本 布局
+class KKUITest extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('文本组件'),
+      ),
+      // 垂直布局
+      body: Column(
+        children: <Widget>[
+          Text(
+            '红色字体 + 黑色下滑线 + 18 号 + 斜体 + 粗体',
+            style: TextStyle(
+              // 颜色
+              color: Colors.red,
+              // 字体
+              fontSize: 18,
+              // 字体样式：斜体
+              fontStyle: FontStyle.italic,
+              // 字体粗细
+              fontWeight: FontWeight.bold,
+              // 文本装饰器（删除线）
+              decoration: TextDecoration.lineThrough,
+              // 文本装饰器颜色（删除线颜色）
+              decorationColor: Colors.black,
+              // 文字间距;非行间距
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            '橙色 + 下划线 + 24号',
+            style: TextStyle(
+              color: const Color(0xffff9900),
+              decoration: TextDecoration.lineThrough,
+              fontSize: 24,
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          Text(
+            '23号 + 斜体 + 加粗 + 字间距6',
+            style: TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              letterSpacing: 6,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
